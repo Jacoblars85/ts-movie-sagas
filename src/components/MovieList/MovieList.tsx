@@ -12,6 +12,15 @@ function MovieList() {
     dispatch({ type: 'FETCH_MOVIES' });
   }, []);
 
+  const goToDescription = (movie) => {
+    dispatch({
+      type: 'SAGA_FETCH_GENRES',
+      payload: movie
+    })
+
+    history.push(`/details`)
+  }
+
   return (
     <main>
       <MovieForm />
@@ -23,7 +32,9 @@ function MovieList() {
           return (
             <div key={movie.id}>
               <h3>{movie.title}</h3>
-              <img src={movie.poster} alt={movie.title}/>
+              <img src={movie.poster} 
+              alt={movie.title}
+              onClick={() => goToDescription(movie)} />
             </div>
           );
         })}
