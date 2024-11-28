@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
-const movieRouter = require('./routes/movie.router.js')
-const genreRouter = require('./routes/genre.router.js')
+const movieRouter = require('./routes/movie.router.ts')
+const genreRouter = require('./routes/genre.router.ts')
 const PORT = process.env.PORT || 5001;
 
 /** ---------- MIDDLEWARE ---------- **/
