@@ -1,6 +1,28 @@
-import React from 'react';
+import { useSelector, useDispatch } from 'react-redux'
+import React, { useState } from 'react';
 
 function MovieForm() {
+
+    const dispatch = useDispatch();
+
+    const [titleInput, setTitleInput] = useState('');
+    const [descriptionInput, setDescriptionInput] = useState('');
+    const [urlInput, setUrlInput] = useState('');
+
+    const addPassenger = () => {
+        dispatch({
+            type: 'SAGA_POST_MOVIE',
+            payload: {
+                title: titleInput,
+                poster: urlInput,
+                description: descriptionInput
+
+            }
+        })
+        setTitleInput('')
+        setDescriptionInput('')
+        setUrlInput('')
+    }
 
   return (
     <div>
