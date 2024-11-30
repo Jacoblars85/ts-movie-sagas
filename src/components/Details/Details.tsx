@@ -21,15 +21,15 @@ function Details() {
 
       <br />
 
-      {/* {genres.map(genre => {
+      {genres && genres.map(genre => {
         return (
             <div key={genre.id}>
                 <p>{genre.movie_genre}</p>
             </div>
         );
-    })} */}
+    })}
 
-      {/* <br /> */}
+      <br />
       <button onClick={() => history.push(`/`)}>back</button>
     </div>
   );
