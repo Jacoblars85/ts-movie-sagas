@@ -1,26 +1,26 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import MovieForm from '../MovieForm/MovieForm';
-import './MovieList.css';
-import { useHistory } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import MovieForm from "../MovieForm/MovieForm";
+import "./MovieList.css";
+import { useHistory } from "react-router-dom";
 
 function MovieList() {
   const history = useHistory();
   const dispatch = useDispatch();
-  const movies = useSelector(store => store.movies);
+  const movies = useSelector((store) => store.movies);
 
   useEffect(() => {
-    dispatch({ type: 'FETCH_MOVIES' });
+    dispatch({ type: "FETCH_MOVIES" });
   }, []);
 
   const goToDescription = (movie) => {
     dispatch({
-      type: 'SAGA_FETCH_GENRES',
-      payload: movie
-    })
+      type: "SAGA_FETCH_GENRES",
+      payload: movie,
+    });
 
-    history.push(`/details`)
-  }
+    history.push(`/details`);
+  };
 
   return (
     <main>
@@ -29,13 +29,15 @@ function MovieList() {
       <h1>MovieList</h1>
 
       <section className="movies">
-        {movies.map(movie => {
+        {movies.map((movie) => {
           return (
             <div key={movie.id}>
               <h3>{movie.title}</h3>
-              <img src={movie.poster} 
-              alt={movie.title}
-              onClick={() => goToDescription(movie)} />
+              <img
+                src={movie.poster}
+                alt={movie.title}
+                onClick={() => goToDescription(movie)}
+              />
             </div>
           );
         })}
