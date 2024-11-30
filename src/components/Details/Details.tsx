@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useHistory } from 'react-router-dom';
 
 function Details() {
+    const history = useHistory();
 
     const currentMovie = useSelector(store => store.currentMovie);
 
@@ -15,7 +16,29 @@ function Details() {
   return (
     <div>
 
-    </div>
+    <h2>{currentMovie.title}</h2>
+
+    <br />
+
+    <img src={currentMovie.poster} alt={currentMovie.title} />
+
+    <br />
+
+    <p>{currentMovie.description}</p>
+
+    <br />
+
+    {/* {genres.map(genre => {
+        return (
+            <div key={genre.id}>
+                <p>{genre.movie_genre}</p>
+            </div>
+        );
+    })} */}
+
+    {/* <br /> */}
+    <button onClick={goToHome}>back</button>
+</div>
   );
 }
 
