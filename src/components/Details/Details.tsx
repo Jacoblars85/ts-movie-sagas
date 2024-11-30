@@ -7,12 +7,6 @@ function Details() {
 
     const currentMovie = useSelector(store => store.currentMovie);
 
-    const goToHome = () => {
-
-        history.push(`/`)
-    }
-
-
   return (
     <div>
 
@@ -37,7 +31,7 @@ function Details() {
     })} */}
 
     {/* <br /> */}
-    <button onClick={goToHome}>back</button>
+    <button onClick={() => history.push(`/`)}>back</button>
 </div>
   );
 }
