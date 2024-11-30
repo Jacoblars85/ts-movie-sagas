@@ -1,28 +1,27 @@
-import React from 'react';
+import React from "react";
 import { useSelector } from "react-redux";
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 function Details() {
-    const history = useHistory();
+  const history = useHistory();
 
-    const currentMovie = useSelector(store => store.currentMovie);
+  const currentMovie = useSelector((store) => store.currentMovie);
 
   return (
     <div>
+      <h2>{currentMovie.title}</h2>
 
-    <h2>{currentMovie.title}</h2>
+      <br />
 
-    <br />
+      <img src={currentMovie.poster} alt={currentMovie.title} />
 
-    <img src={currentMovie.poster} alt={currentMovie.title} />
+      <br />
 
-    <br />
+      <p>{currentMovie.description}</p>
 
-    <p>{currentMovie.description}</p>
+      <br />
 
-    <br />
-
-    {/* {genres.map(genre => {
+      {/* {genres.map(genre => {
         return (
             <div key={genre.id}>
                 <p>{genre.movie_genre}</p>
@@ -30,9 +29,9 @@ function Details() {
         );
     })} */}
 
-    {/* <br /> */}
-    <button onClick={() => history.push(`/`)}>back</button>
-</div>
+      {/* <br /> */}
+      <button onClick={() => history.push(`/`)}>back</button>
+    </div>
   );
 }
 
