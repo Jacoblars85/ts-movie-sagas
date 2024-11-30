@@ -2,9 +2,10 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import MovieForm from '../MovieForm/MovieForm';
 import './MovieList.css';
+import { useHistory } from 'react-router-dom';
 
 function MovieList() {
-
+  const history = useHistory();
   const dispatch = useDispatch();
   const movies = useSelector(store => store.movies);
 
