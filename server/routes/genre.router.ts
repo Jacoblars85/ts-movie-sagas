@@ -4,8 +4,6 @@ const pool = require('../modules/pool')
 
 router.get('/:id', (req, res) => {
   
-  console.log('req.params.id', req.params.id );
-  
     const query = `
     SELECT "movies"."title", "genres"."name" as "movie_genre" FROM "movies_genres"
     inner join "movies"
@@ -15,8 +13,6 @@ router.get('/:id', (req, res) => {
     WHERE "movies"."id" = ${req.params.id};
   `;
   
-  
-  
     pool.query(query)
       .then(result => {
         res.send(result.rows);
@@ -25,7 +21,6 @@ router.get('/:id', (req, res) => {
         console.log('ERROR: Get all movie genre', err);
         res.sendStatus(500)
       })
-  
   });
 
 module.exports = router;
