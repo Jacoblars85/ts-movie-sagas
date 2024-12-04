@@ -8,6 +8,8 @@ import axios from 'axios';
 function* rootSaga() {
   yield takeEvery('FETCH_MOVIES', fetchAllMovies);
   yield takeEvery('SAGA_FETCH_GENRES', fetchTheGenre);
+  yield takeEvery('SAGA_POST_MOVIE', postMovie);
+
 }
 
 function* fetchAllMovies() {
@@ -35,6 +37,26 @@ function* fetchTheGenre(action) {
     });
   } catch (error) {
     console.log('fetchTheGenre error:', error);
+  }
+}
+
+function* postMovie(action) {
+  try {
+      const response = yield axios({
+          method: 'POST',
+          url: '/api/movies',
+          data: {
+            title: action.payload.title, 
+            poster: action.payload.poster,
+            description: action.payload.description
+            
+          }
+      })
+      yield put({
+          type: 'FETCH_MOVIES',
+      })
+  } catch (error) {
+      console.log('Unable to saving movies to server', error);
   }
 }
 
