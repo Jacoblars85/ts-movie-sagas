@@ -47,7 +47,7 @@ function MovieForm() {
         value={urlInput}
       />
 
-      <button onClick={addPassenger}>Add Passenger</button>
+      <button onClick={addPassenger}>Add Movie</button>
     </div>
   );
 }
