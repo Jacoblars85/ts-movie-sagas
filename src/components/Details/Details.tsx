@@ -5,9 +5,9 @@ import { useHistory } from "react-router-dom";
 function Details() {
   const history = useHistory();
 
-  const currentMovie = useSelector((store) => store.currentMovie);
-  const genres = useSelector(store => store.genres);
-  
+  const currentMovie = useSelector((store: any) => store.currentMovie);
+  const genres = useSelector((store: any) => store.genres);
+
   return (
     <div>
       <h2>{currentMovie.title}</h2>
